@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Optional: prevents the body from scrolling */
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto';
+    background-color: #708090;
+
+}
+
+#container{
+    width: 95%; /* Responsive width */
+    max-width: 1280px; /* Maximum width */
+    height: 100%; /* Height based on content */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 2px 20px;
+    overflow: auto; /* Allows scrolling within the container */
+    margin: 20px; /* Adds some space around the container */
+    position: relative;
+}
+
+#container > #title {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#container > #subtitle {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 10px; 
+}
+
+#heat-map{
+    background-color: white;
+}
+
+
+#tooltip {
+    position: absolute; 
+    opacity: 0; 
+    text-align: center;
+    pointer-events: none; 
+    padding: 10px; 
+    color: white;
+    font-size: 1.2em;
+    background-color: rgb(6, 6, 6); 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
