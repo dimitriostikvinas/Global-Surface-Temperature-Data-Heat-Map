@@ -77,7 +77,7 @@ function drawHeatMap(dataset){
         .call(yAxis);
     
     
-
+    
     svg.selectAll("rect")
         .data(data)
         .enter()
@@ -87,7 +87,12 @@ function drawHeatMap(dataset){
         .attr('width', xScale.bandwidth())
         .attr('height', yScale.bandwidth())
         .style('fill', d => colorScale(baseTemperature + d.variance))
+        .style('stroke', 'none') // Default no border
+        .style('stroke-width', 0) // Default no border width
         .on('mouseover', (event, d) => {
+            d3.select(event.currentTarget)
+                .style('stroke', 'black') // Change border color to black on hover
+                .style('stroke-width', 2); // Change border color to black on hover
             tooltip.transition()
                 .duration(200)
                 .style("opacity", 0.9);
@@ -96,6 +101,9 @@ function drawHeatMap(dataset){
                 .style("top", (event.pageY - 28) + "px");
         })
         .on('mouseout', () => {
+            d3.select(event.currentTarget)
+                .style('stroke', 'none')
+                .style('stroke-width', 0);
             tooltip.transition()
                 .duration(500)
                 .style("opacity", 0);
